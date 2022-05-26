@@ -5,25 +5,30 @@
 #include <string>
 #include <stack>
 #include <queue>
+#include <time.h>
+#include <random>
 
 class Laberinto{
-private:
+public:
     Laberinto();
     void drawLaberinto();
     void setInicio();
     void setMeta();
-    void busquedaAmplitud();
-    void busquedaProfundidad();
-    void busquedaIterativa();
-    void printStats();
-    void walkPath();
+    void drawObstaculos();
+    //void busquedaAmplitud();
+    //void busquedaProfundidad();
+    //void busquedaIterativa();
+    //void printStats();
+    //void walkPath();
     
-protected:
+private:
+    std::stack<char> pila;
+    std::queue<char> cola;
     char laberinto[10][10]; 
-    Pointer pointer;
+    Pointer inicio;
+    Pointer meta;
+    Pointer aux;
     int paths_looked;
-    int inicio[2];
-    int meta[2];
     std::string path;
 };
 

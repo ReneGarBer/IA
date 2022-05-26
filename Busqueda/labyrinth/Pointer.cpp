@@ -21,6 +21,14 @@ void Pointer::setPosition(int x, int y){
     this->pointer.Y = y;
 }
 
+int Pointer::getXPointer() const{
+    return this->pointer.X;
+}
+
+int Pointer::getYPointer() const{
+    return this->pointer.Y;
+}
+
 void Pointer::move(){
     HANDLE hcon;
     hcon = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -28,21 +36,50 @@ void Pointer::move(){
 }
 
 void Pointer::nextLine(){
-    this->pointer.X++;
+    this->pointer.Y++;
 }
 
 void Pointer::prevLine(){
-    this->pointer.X--;
+    this->pointer.Y--;
+}
+
+void Pointer::setColor()
+{
+}
+
+void Pointer::defaulColor()
+{
 }
 
 void Pointer::operator ++(){
-    this->pointer.Y++;
-    this->pointer.Y++;
+    this->pointer.X++;
 }
 
 void Pointer::operator --(){
-    this->pointer.Y--;
-    this->pointer.Y--;
+    this->pointer.X--;
+}
+
+void Pointer::operator +=(int i){
+    this->pointer.X += i;
+}
+
+void Pointer::operator -=(int i){
+    this->pointer.X -= i;
+}
+
+void Pointer::operator=(Pointer& aux){
+    this->pointer.X = aux.getXPointer();
+    this->pointer.Y = aux.getYPointer();
+}
+
+bool Pointer::operator==(Pointer& aux){
+    return this->pointer.X == aux.getXPointer() 
+        && this->pointer.Y == aux.getYPointer();
+}
+
+bool Pointer::operator!=(Pointer& aux){
+    return this->pointer.X != aux.getXPointer()
+        || this->pointer.Y != aux.getYPointer();
 }
 
 void setColor(int color){

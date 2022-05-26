@@ -4,18 +4,36 @@ Menu::Menu(){
     mainMenu();
 }
 
-void Menu::mainMenu(){
-    
-    std::cout << "Coloque el punto de inicio. Use las el teclado numerico para moverse [▲(8),▼(2),◄(4),►(6)]:\n";
+void Menu::mainMenu(){ 
+    std::cout << "Coloque el punto de inicio. Use las el teclado numerico para moverse\n[Arriba(8),Abajo(2),Izquierda(4),Derecha(6),Salir(0)].\n";
     this->pointer.setCurrentPosition();
+    std::cout<<"\n\n\n";
+    this->laberinto.drawLaberinto();
     this->laberinto.setInicio();
-    std::cout << "Coloque la meta. Use las el teclado numerico para moverse [▲(8),▼(2),◄(4),►(6)]:";
-}
+    this->pointer.move();
+    std::cout << "Coloque la meta. Use las el teclado numerico para moverse\n[Arriba(8),Abajo(2),Izquierda(4),Derecha(6),Salir(0)].\n";
+    std::cout << "\n\n";
+    this->laberinto.setMeta();
+    this->laberinto.drawObstaculos();
 
-void Menu::drawMenu(){
+ /*   std::cout << "Seleccione el método de busqueda.\n1) Amplitud\n2) Profundidad\n3) Iterativa\n";
+    int opcion;
+    std::cin >> opcion;
 
-}
-
-void Menu::infoMenu(){
-
+    switch (opcion)
+    {
+    case 1:
+        this->laberinto.busquedaAmplitud();
+        break;
+    case 2:
+        this->laberinto.busquedaProfundidad();
+        break;
+    case 3:
+        this->laberinto.busquedaIterativa();
+        break;   
+    default:
+        break;
+    }
+    this->laberinto.walkPath();
+    this->laberinto.printStats();*/
 }

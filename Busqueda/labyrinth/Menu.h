@@ -6,13 +6,10 @@
 class Menu{
 public:
     Menu();
-
+    void mainMenu();
 private:
     Pointer pointer;
     Laberinto laberinto;
-    void mainMenu();
-    void drawMenu();
-    void infoMenu();
 };
 
 #endif //Menu_h
