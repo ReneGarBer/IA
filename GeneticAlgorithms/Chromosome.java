@@ -2,9 +2,10 @@ import java.util.Random;
 
 public class Chromosome {
     int[] chromosome = new int[20];
-
-    Chromosome(){
+    int id;
+    Chromosome(int id){
         createChromosome();
+        this.id = id;
     }
 
     private void createChromosome(){
@@ -32,7 +33,8 @@ public class Chromosome {
     public void mutate(){
         Random random = new Random();
         int bit = random.nextInt(20);
-        chromosome[bit] = chromosome[bit] == 0? 1: 0;  
+        //chromosome[bit] = chromosome[bit] == 0? 1: 0;
+        chromosome[bit] = 1;  
     }
 
     public int getAt(int i){

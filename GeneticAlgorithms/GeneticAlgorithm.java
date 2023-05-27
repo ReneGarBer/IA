@@ -33,8 +33,9 @@ public class GeneticAlgorithm {
     }
 
     private void replace() {
-
+        int id = population[parent1].id; 
         population[parent1] = optimalSolution;
+        population[parent1].id = id;
     }
 
     private void rouletteWheel(){
@@ -68,10 +69,8 @@ public class GeneticAlgorithm {
         try {
             Thread.sleep(250);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            //e.printStackTrace();
+            
         }
-        //System.out.printf("spin1: %f%nspin1: %f%n",spin1,spin2);
     }
 
     private boolean fitness(){
@@ -91,7 +90,7 @@ public class GeneticAlgorithm {
 
     private void fillPopulation(){
         for(int i = 0; i < 100; i++){
-            population[i] = new Chromosome();
+            population[i] = new Chromosome(i);
         }
     }
 
@@ -129,11 +128,11 @@ public class GeneticAlgorithm {
 
     private void printResults(){
         System.out.println("Generation: "+genCount);
-        System.out.println("Parent 1: ");
+        System.out.printf("Parent 1. ID %d\n",parent1c.id);
         parent1c.printChromosome();
-        System.out.println("Parent 2: ");
+        System.out.printf("Parent 2. ID %d\n",parent2c.id);
         parent2c.printChromosome();
-        System.out.println("Children: ");
+        System.out.printf("Children: ID %d\n",optimalSolution.id);
         optimalSolution.printChromosome();
     }
 
